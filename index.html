@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Impariamo i colori</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="bg-clouds" aria-hidden="true"></div>
+
+    <main class="app">
+      <header class="top">
+        <div class="site-header">
+          <div class="logo">🎨</div>
+          <p class="site-title">Italiano per bimbi</p>
+        </div>
+
+        <div class="status">
+          <div class="pill" id="level-pill">
+            <span class="pill-label">Level</span>
+            <span class="pill-value" id="level-value">0</span>
+          </div>
+        </div>
+
+        <h1 id="prompt-word">Premi un tasto per iniziare</h1>
+      </header>
+
+      <section class="card">
+        <button id="start-button" class="start-button" type="button">
+          START
+        </button>
+        <p class="hint" id="hint-text">Clicca il colore giusto</p>
+
+        <div class="choices" role="list">
+          <button
+            class="choice color-choice rosso"
+            type="button"
+            data-color="rosso"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice blu"
+            type="button"
+            data-color="blu"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice giallo"
+            type="button"
+            data-color="giallo"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice verde"
+            type="button"
+            data-color="verde"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice arancione"
+            type="button"
+            data-color="arancione"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice viola"
+            type="button"
+            data-color="viola"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice rosa"
+            type="button"
+            data-color="rosa"
+          >
+            <div class="color-swatch"></div>
+          </button>
+
+          <button
+            class="choice color-choice nero"
+            type="button"
+            data-color="nero"
+          >
+            <div class="color-swatch"></div>
+          </button>
+        </div>
+
+        <div class="footer-row">
+          <div class="note" id="result-text" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
