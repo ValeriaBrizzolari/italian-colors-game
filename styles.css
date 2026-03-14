@@ -120,6 +120,41 @@ body {
   outline: 4px solid rgba(255, 255, 255, 0.9);
   outline-offset: 3px;
 }
+.language-toggle {
+  padding: 8px 16px;
+
+  font-family: "Fredoka", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+
+  background: linear-gradient(180deg, var(--cream) 0%, #ffffff 80%);
+  color: var(--ink);
+
+  border: 3px solid rgba(22, 50, 74, 0.16);
+  border-radius: 14px;
+
+  box-shadow: var(--shadow-soft);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.08s ease,
+    filter 0.08s ease;
+}
+
+.language-toggle:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.language-toggle:active {
+  transform: translateY(1px) scale(0.98);
+}
+.language-toggle img {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+}
 .app {
   max-width: 980px;
   margin: 0 auto;
@@ -132,6 +167,13 @@ body {
 }
 
 .site-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  justify-content: space-between;
+}
+.site-left {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -267,7 +309,6 @@ h1 {
   color: var(--ink);
 }
 
-/* Colori */
 .rosso .color-swatch {
   background: #e53935;
 }
@@ -374,6 +415,14 @@ h1 {
 
   #hint-text {
     font-size: 1.5rem;
+  }
+  .site-header {
+    gap: 10px;
+  }
+
+  .language-toggle {
+    font-size: 0.9rem;
+    padding: 6px 12px;
   }
 }
 
