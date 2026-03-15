@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Impariamo i colori</title>
+    <title>Colors</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,11 +25,19 @@
             <div class="logo">🎨</div>
             <p class="site-title">COLOURS</p>
           </div>
-          <button id="language-toggle" class="language-toggle">
-            <img src="https://flagcdn.com/w20/it.png" />
-            /
-            <img src="https://flagcdn.com/w20/gb.png" />
-          </button>
+
+          <div id="language-toggle" class="language-toggle">
+            <div class="toggle-slider"></div>
+            <div class="toggle-option option-it">
+              <img src="https://flagcdn.com/w20/it.png" class="flag" />
+              <span>Italiano</span>
+            </div>
+
+            <div class="toggle-option option-en">
+              <span>English</span>
+              <img src="https://flagcdn.com/w20/gb.png" class="flag" />
+            </div>
+          </div>
         </div>
 
         <div class="status">

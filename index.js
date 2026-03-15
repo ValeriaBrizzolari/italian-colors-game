@@ -13,6 +13,7 @@ let level = 0;
 let mode = "it";
 let correctAnswer;
 let interfaceLanguage = "en";
+let gameColors = [];
 const languageToggle = document.querySelector("#language-toggle");
 const startButton = document.querySelector("#start-button");
 let levelDisplay = document.querySelector("#level-value");
@@ -48,6 +49,7 @@ languageToggle.addEventListener("click", function () {
     mode = "it";
     interfaceLanguage = "en";
   }
+  languageToggle.classList.toggle("en");
   updateInterface();
   if (started) {
     startOver();
@@ -59,13 +61,15 @@ startButton.addEventListener("click", function () {
     started = true;
     level = 0;
     startButton.style.display = "none";
+    gameColors = [...colors];
+    shuffle(gameColors);
     nextRound();
   }
 });
 function nextRound() {
   result.innerText = "";
   levelDisplay.innerText = level + 1;
-  correctAnswer = colors[level];
+  correctAnswer = gameColors[level];
   promptWord.innerText = correctAnswer.translations[mode];
   let displayedItems = [...colors];
   shuffle(displayedItems);
@@ -97,7 +101,7 @@ for (let i = 0; i < buttons.length; i++) {
         setTimeout(function () {
           clickedButton.classList.remove("correct");
         }, 800);
-        if (level === colors.length - 1) {
+        if (level === gameColors.length - 1) {
           promptWord.innerText = t("Great job, you won!", "Bravo, hai vinto!");
           confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.2 } });
@@ -135,5 +139,6 @@ function startOver() {
   levelDisplay.innerText = 0;
   startButton.style.display = "block";
   result.innerText = "";
+  gameColors = [];
   updateInterface();
 }
