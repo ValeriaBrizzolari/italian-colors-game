@@ -81,6 +81,30 @@ body {
     );
   filter: blur(0.2px);
 }
+.star-progress {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 6px;
+}
+
+.star {
+  font-size: 2rem;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.star.empty {
+  color: rgba(22, 50, 74, 0.22);
+}
+
+.star.filled {
+  color: #ffd84d;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transform: scale(1.08);
+}
 .start-button {
   display: block;
   margin: 12px auto 18px;

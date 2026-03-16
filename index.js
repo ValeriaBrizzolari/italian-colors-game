@@ -23,6 +23,10 @@ let buttons = document.querySelectorAll(".choice");
 const hintText = document.querySelector("#hint-text");
 const siteTitle = document.querySelector(".site-title");
 const levelLabel = document.querySelector(".pill-label");
+const star1 = document.querySelector("#star-1");
+const star2 = document.querySelector("#star-2");
+const star3 = document.querySelector("#star-3");
+const star4 = document.querySelector("#star-4");
 updateInterface();
 
 function t(en, it) {
@@ -30,6 +34,25 @@ function t(en, it) {
     return en;
   } else {
     return it;
+  }
+}
+function updateStars(totalItems) {
+  const progress = level / totalItems;
+
+  if (progress >= 0.25) {
+    star1.classList.add("filled");
+  }
+
+  if (progress >= 0.5) {
+    star2.classList.add("filled");
+  }
+
+  if (progress >= 0.75) {
+    star3.classList.add("filled");
+  }
+
+  if (level === totalItems) {
+    star4.classList.add("filled");
   }
 }
 function updateInterface() {
@@ -101,7 +124,9 @@ for (let i = 0; i < buttons.length; i++) {
         setTimeout(function () {
           clickedButton.classList.remove("correct");
         }, 800);
-        if (level === gameColors.length - 1) {
+        level++;
+        updateStars(gameColors.length);
+        if (level === gameColors.length) {
           promptWord.innerText = t("Great job, you won!", "Bravo, hai vinto!");
           confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.2 } });
@@ -113,7 +138,7 @@ for (let i = 0; i < buttons.length; i++) {
           }, 3000);
           return;
         }
-        level++;
+
         setTimeout(function () {
           result.innerText = "";
           nextRound();
@@ -141,4 +166,8 @@ function startOver() {
   result.innerText = "";
   gameColors = [];
   updateInterface();
+  star1.classList.remove("filled");
+  star2.classList.remove("filled");
+  star3.classList.remove("filled");
+  star4.classList.remove("filled");
 }
