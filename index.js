@@ -29,6 +29,12 @@ const star3 = document.querySelector("#star-3");
 const star4 = document.querySelector("#star-4");
 updateInterface();
 
+function makeSound() {
+  let correctItemSound = new Audio(
+    "/sounds/" + correctAnswer.translations[mode] + ".mp3",
+  );
+  correctItemSound.play();
+}
 function t(en, it) {
   if (interfaceLanguage === "en") {
     return en;
@@ -93,6 +99,7 @@ function nextRound() {
   result.innerText = "";
   levelDisplay.innerText = level + 1;
   correctAnswer = gameColors[level];
+  makeSound();
   promptWord.innerText = correctAnswer.translations[mode];
   let displayedItems = [...colors];
   shuffle(displayedItems);
@@ -121,6 +128,8 @@ for (let i = 0; i < buttons.length; i++) {
       if (clickedColor === correctAnswer.translations[mode]) {
         result.innerText = t("Correct!", "Esatto!");
         clickedButton.classList.add("correct");
+        let correctSound = new Audio("/sounds/correctAnswer.wav");
+        correctSound.play();
         setTimeout(function () {
           clickedButton.classList.remove("correct");
         }, 800);
@@ -128,6 +137,13 @@ for (let i = 0; i < buttons.length; i++) {
         updateStars(gameColors.length);
         if (level === gameColors.length) {
           promptWord.innerText = t("Great job, you won!", "Bravo, hai vinto!");
+          if (mode === "en") {
+            let winningGameSoundIt = new Audio("/sounds/MessaggioVincita.mp3");
+            winningGameSoundIt.play();
+          } else {
+            let winningGameSoundEn = new Audio("/sounds/WinVoiceMessage.mp3");
+            winningGameSoundEn.play();
+          }
           confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.2 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.8 } });
@@ -146,6 +162,8 @@ for (let i = 0; i < buttons.length; i++) {
       } else {
         result.innerText = t("OOOPS, wrong!", "OOOPS, sbagliato!");
         clickedButton.classList.add("wrong");
+        let gameOverSound = new Audio("/sounds/gameOver.wav");
+        gameOverSound.play();
         document.querySelector(".app").classList.add("game-over");
         setTimeout(function () {
           clickedButton.classList.remove("wrong");
