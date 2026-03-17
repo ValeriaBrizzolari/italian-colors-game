@@ -144,6 +144,8 @@ for (let i = 0; i < buttons.length; i++) {
             let winningGameSoundEn = new Audio("/sounds/WinVoiceMessage.mp3");
             winningGameSoundEn.play();
           }
+          let gameWonSound = new Audio("/sounds/gameWon.wav");
+          gameWonSound.play();
           confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.2 } });
           confetti({ particleCount: 120, spread: 70, origin: { x: 0.8 } });
