@@ -81,6 +81,13 @@ body {
     );
   filter: blur(0.2px);
 }
+.game-icon img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
 .star-progress {
   display: flex;
   justify-content: center;
